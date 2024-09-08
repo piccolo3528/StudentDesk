@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .description {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #ffffff; /* White background */
+            border-bottom: 1px solid #b2dfdb; /* Light teal border */
+            margin: 0 auto;
+            max-width: 800px; /* Centered content */
+        }
+
+        .description h1 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #00796b; /* Dark teal text color */
+        }
+
+        .description p {
+            margin: 10px 0 0;
+            color: #004d40; /* Darker teal text color */
+            font-size: 1.1em;
+            line-height: 1.5; /* Increase line-height for readability */
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+        }
+
+        .slideshow-slide {
+            display: none;
+            position: relative;
+            width: 100%;
+        }
+
+        .slideshow-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .slideshow-prev, .slideshow-next {
+            position: absolute;
+            top: 50%;
+            font-size: 2em;
+            color: #00796b; /* Dark teal arrow color */
+            cursor: pointer;
+            user-select: none;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+            border: 1px solid #b2dfdb; /* Light teal border */
+            border-radius: 50%; /* Rounded arrows */
+            padding: 5px;
+        }
+
+        .slideshow-prev {
+            left: 10px;
+        }
+
+        .slideshow-next {
+            right: 10px;
+        }
+
+        .slideshow-prev:hover, .slideshow-next:hover {
+            background-color: rgba(255, 255, 255, 0.9); /* Lighter background on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="description">
+            <h1>About Me</h1>
+            <p>Hello! I'm Mohammad Umair Jamal. Welcome to my website. Here you'll find information about my projects, interests, and more. Feel free to explore the gallery, news, and get in touch through the contact page.</p>
+        </div>
+
+        <div class="slideshow-container">
+            <div class="slideshow-slide fade">
+                <img src="images/slide1.jpg" alt="Slide 1">
+            </div>
+            <div class="slideshow-slide fade">
+                <img src="images/slide2.jpg" alt="Slide 2">
+            </div>
+            <div class="slideshow-slide fade">
+                <img src="images/slide3.jpg" alt="Slide 3">
+            </div>
+
+            <a class="slideshow-prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="slideshow-next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Website</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+
+        function showSlides() {
+            const slides = document.querySelectorAll('.slideshow-slide');
+            slides.forEach((slide, index) => {
+                slide.style.display = (index === slideIndex) ? 'block' : 'none';
+            });
+        }
+
+        function changeSlide(n) {
+            const slides = document.querySelectorAll('.slideshow-slide');
+            slideIndex = (slideIndex + n + slides.length) % slides.length;
+            showSlides();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSlides();
+            setInterval(() => changeSlide(1), 5000); // Change slide every 5 seconds
+        });
+    </script>
+</body>
+</html>

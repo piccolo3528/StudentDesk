@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .news-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .news-card {
+            width: 300px;
+            border: 1px solid #000000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #d6945a00;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .news-card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .news-card-content {
+            padding: 15px;
+        }
+
+        .news-card-content h3 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .news-card-content p {
+            margin: 10px 0 0;
+            color: #333;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>News</h1>
+        <div class="news-container">
+            <div class="news-card">
+                <img src="images/news1.jpg" alt="News Image 1">
+                <div class="news-card-content">
+                    <h3>News Title 1</h3>
+                    <p>Some brief text about the news. This section can be used to provide a summary or highlight the key points.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="images/news2.jpg" alt="News Image 2">
+                <div class="news-card-content">
+                    <h3>News Title 2</h3>
+                    <p>Some brief text about the news. This section can be used to provide a summary or highlight the key points.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="images/news3.jpg" alt="News Image 3">
+                <div class="news-card-content">
+                    <h3>News Title 3</h3>
+                    <p>Some brief text about the news. This section can be used to provide a summary or highlight the key points.</p>
+                </div>
+            </div>
+            <!-- Add more news cards as needed -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Website</p>
+    </footer>
+</body>
+</html>
