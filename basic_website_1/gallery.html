@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal img {
+            max-width: 90vw;
+            max-height: 80vh;
+            display: block;
+        }
+
+        .modal-close, .modal-prev, .modal-next {
+            position: absolute;
+            top: 50%;
+            font-size: 2em;
+            color: #fff;
+            cursor: pointer;
+            user-select: none;
+            transform: translateY(-50%);
+        }
+
+        .modal-close {
+            top: 20px;
+            right: 20px;
+        }
+
+        .modal-prev {
+            left: 20px;
+        }
+
+        .modal-next {
+            right: 60px;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Gallery</h1>
+        <div class="gallery" id="gallery">
+            <!-- Images will be added here dynamically -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Website</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <span class="modal-prev" onclick="changeImage(-1)">&#10094;</span>
+            <img id="modal-img" src="" alt="Expanded Image">
+            <span class="modal-next" onclick="changeImage(1)">&#10095;</span>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            'images/image1.jpg',
+            'images/image2.jpg',
+            'images/image3.jpg'
+            // Add more images as needed
+        ];
+
+        function loadImages() {
+            const gallery = document.getElementById('gallery');
+            images.forEach((src, index) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = `Image ${index + 1}`;
+                img.onclick = () => openModal(index);
+                gallery.appendChild(img);
+            });
+        }
+
+        let currentImageIndex = 0;
+
+        function openModal(index) {
+            currentImageIndex = index;
+            document.getElementById('modal-img').src = images[currentImageIndex];
+            document.getElementById('modal').classList.add('show');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('show');
+        }
+
+        function changeImage(direction) {
+            currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+            document.getElementById('modal-img').src = images[currentImageIndex];
+        }
+
+        window.onload = loadImages;
+    </script>
+</body>
+</html>

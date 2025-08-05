@@ -1,0 +1,202 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7fa; /* Light blue background */
+    color: #333; /* Darker text color for readability */
+}
+
+header {
+    background-color: #00796b; /* Dark teal background */
+    padding: 10px 0;
+    color: #ffffff; /* White text color */
+    border-bottom: 1px solid #004d40; /* Slightly darker teal border */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #ffffff; /* White text color */
+    text-decoration: none;
+    font-weight: normal; /* Normal font weight */
+}
+
+/* Description Section */
+.description {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #ffffff; /* White background */
+    border-bottom: 1px solid #b2dfdb; /* Light teal border */
+    margin: 0 auto;
+    max-width: 800px; /* Centered content */
+}
+
+.description h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #00796b; /* Dark teal text color */
+}
+
+.description p {
+    margin: 10px 0 0;
+    color: #004d40; /* Darker teal text color */
+    font-size: 1.1em;
+    line-height: 1.5; /* Increase line-height for readability */
+}
+
+/* Slideshow Styles */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.slideshow-slide {
+    display: none;
+    position: relative;
+    width: 100%;
+}
+
+.slideshow-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.slideshow-prev, .slideshow-next {
+    position: absolute;
+    top: 50%;
+    font-size: 2em;
+    color: #00796b; /* Dark teal arrow color */
+    cursor: pointer;
+    user-select: none;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    border: 1px solid #b2dfdb; /* Light teal border */
+    border-radius: 50%; /* Rounded arrows */
+    padding: 5px;
+}
+
+.slideshow-prev {
+    left: 10px;
+}
+
+.slideshow-next {
+    right: 10px;
+}
+
+.slideshow-prev:hover, .slideshow-next:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* Lighter background on hover */
+}
+
+/* News Page Styles */
+.news-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.news-card {
+    background-color: #ffffff; /* White background */
+    border: 1px solid #b2dfdb; /* Light teal border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+    overflow: hidden;
+    max-width: 300px; /* Card width */
+    text-align: center;
+}
+
+.news-card img {
+    width: 100%;
+    height: auto;
+}
+
+.news-card .news-content {
+    padding: 15px;
+}
+
+.news-card .news-content h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #00796b; /* Dark teal text color */
+}
+
+.news-card .news-content p {
+    color: #004d40; /* Darker teal text color */
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+/* Contact Page Styles */
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #00796b; /* Dark teal text color */
+}
+
+.contact-form input, .contact-form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #b2dfdb; /* Light teal border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 1em;
+    width: 100%;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contact-form button {
+    padding: 10px 15px;
+    background-color: #00796b; /* Dark teal button color */
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #004d40; /* Darker teal shade on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .news-container {
+        flex-direction: column;
+    }
+}
